@@ -1,0 +1,384 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+    padding-top: 60px; /* Ajuste para compensar a navbar fixa */
+}
+
+/* Navbar fixa */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: space-between; /* Alinha os itens da navbar corretamente */
+    align-items: center; /* Alinha verticalmente os itens */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Quando rolar a página, a navbar reduz de tamanho */
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 5px 10px;
+}
+
+/* Logo da navbar */
+.navbar-brand {
+    margin-right: auto; /* Mantém a logo à esquerda */
+    padding-left: 15px; /* Espaço para não encostar na borda */
+}
+
+.navbar-brand img {
+    width: 80px; /* Ajuste o tamanho do logo se necessário */
+}
+
+/* Botão do menu hambúrguer */
+.navbar-toggler {
+    margin-left: auto; /* Empurra o botão para o canto direito */
+    border: none;
+    background: none;
+    padding: 5px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none; /* Remove a borda azul ao clicar */
+}
+
+.navbar-toggler-icon {
+    width: 30px;
+    height: 3px;
+    background-color: white; /* Cor das linhas */
+    display: block;
+    position: relative;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: "";
+    width: 30px;
+    height: 3px;
+    background-color: white; /* Cor das linhas */
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-toggler-icon::before {
+    top: -8px;
+}
+
+.navbar-toggler-icon::after {
+    top: 8px;
+}
+
+/* Animação ao abrir o menu */
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-color: transparent;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+
+
+
+
+
+/* Estilo dos links da navbar */
+.navbar .nav-link {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 8px 12px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Navbar items centralizados */
+.navbar-nav {
+    display: flex;
+    justify-content: center; /* Centraliza os itens do menu */
+    gap: 20px; /* Espaçamento entre os itens */
+    width: 100%;
+}
+
+/* Responsividade: ajustes para telas pequenas */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 8px 10px;
+    }
+
+    .navbar-toggler {
+        position: absolute;
+        right: 15px; /* Mantém o botão no canto direito */
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .navbar-collapse {
+        background: rgba(0, 0, 0, 0.8);
+        padding: 10px;
+    }
+
+    .navbar-nav {
+        flex-direction: column; /* Itens do menu se empilham verticalmente */
+        gap: 10px; /* Ajuste o espaçamento entre os itens */
+    }
+}
+
+/* Estilos da seção "Sobre" */
+.sobre-section {
+    background-color: #f8f9fa; /* Fundo claro para a seção */
+    padding: 50px 0; /* Padding para dar um espaçamento confortável */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.sobre-section .container {
+    max-width: 1200px;
+    padding: 0 15px;
+}
+
+.sobre-section h2 {
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.sobre-section p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Responsividade para a seção "Sobre" */
+@media (max-width: 768px) {
+    .sobre-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .sobre-section p {
+        font-size: 1rem;
+    }
+}
+
+/* Estilos do acordeão */
+.accordion-item {
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.accordion-item:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Botão do acordeão */
+.accordion-button {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.accordion-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #0056b3;
+}
+
+/* Corpo do acordeão */
+.accordion-body {
+    background-color: #ffffff;
+    padding: 20px;
+    border-top: 2px solid #007bff;
+    border-radius: 0 0 8px 8px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Imagens no acordeão */
+.cidade-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+/* Layout flexbox para imagem e texto */
+.accordion-body .d-flex {
+    display: flex;
+    align-items: center;
+}
+
+/* Texto dentro do acordeão */
+.cidade-text {
+    flex: 1;
+    font-size: 1.1rem;
+}
+
+/* Ícones do acordeão */
+.accordion-button::after {
+    font-size: 1.2rem;
+    content: " ▼";
+    margin-left: 10px;
+}
+
+.accordion-button:not(.collapsed)::after {
+    content: " ▲";
+}
+
+.accordion-button {
+    background-color: #0a1d3a;
+    color: white;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #0a1d3a;
+    color: white;
+    box-shadow: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+/* Responsividade extra */
+@media (max-width: 576px) {
+    .navbar-brand img {
+        width: 40px;
+    }
+
+    .sobre-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .sobre-section p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Transição suave para o menu */
+#navbarNav {
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+.carousel-caption {
+    background: rgba(0, 0, 50, 0.4); /* Azul-marinho translúcido */
+    backdrop-filter: blur(8px); /* Glassmorphism */
+    -webkit-backdrop-filter: blur(8px); 
+    padding: 20px 30px;
+    border-radius: 15px;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 80%;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.carousel-caption h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+#carrosselCidades {
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+
+
+/* Para o carrossel ocupar a altura da tela */
+.carousel-item img {
+    height: 100vh; /* 100% da altura da tela */
+    object-fit: cover;
+}
+
+/* Rolagem suave ao clicar nos links âncora */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ícone de rolagem (setinha para baixo) */
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: white;
+    z-index: 1000;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.scroll-down:hover {
+    opacity: 0.7;
+}
+
+
+
+
+.acesso-privado-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1050; /* acima da navbar */
+}
+
+
+.municipio-card {
+    background-color: #f9f9f9;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.municipio-card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
