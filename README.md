@@ -1,27 +1,28 @@
-🌎 ExploraRMC
-Portal informativo sobre as cidades da Região Metropolitana de Campinas (RMC).
+# Projeto Integrador I
 
-<div align="center">
+### Autores:
+- Marilia Andre dos Santos
+- Juliana Dezotti Fuzaro
+- Renan Lunardeli dos Santos
+- Diego Marcelino Silva
+- Marcio Basilio de Souza
 
-</div>
-⚡ Tecnologias
-HTML5, CSS3, Bootstrap 5
+## Tecnologias Usadas:
+- HTML5
+- CSS3
+- JavaScript
+- Python (Flask)
+- MySQL
+- Git & GitHub
 
-Python (Flask)
+## Descrição
+**Explorando a RMC: Um guia completo da Região Metropolitana de Campinas.**
 
-MySQL
+Este projeto tem como objetivo a criação de um guia interativo e informativo sobre a Região Metropolitana de Campinas (RMC). Utilizando tecnologias como HTML5, CSS3, JavaScript, Python com Flask e MySQL, a plataforma oferece informações centralizadas sobre as cidades da região, facilitando o acesso a dados como população, área, PIB, IDH, entre outros. A solução conta com um design moderno e funcional, permitindo aos usuários explorar as informações de maneira clara e dinâmica.
 
-Git (controle de versão)
+## Funcionalidades:
+- **Visualização de dados**: Exibição interativa de informações sobre as cidades da RMC, com filtros e buscas.
+- **Sugestões de usuários**: Formulário onde usuários podem enviar sugestões e comentários sobre o guia.
+- **Responsividade**: Interface adaptável para dispositivos móveis e desktops.
 
-🚀 Como rodar
-bash
-Copiar
-Editar
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
-pip install flask pymysql
-python app.py
-<div align="center">
-Feito com 💙 para a graduação • Projeto Integrador
 
-</div>
