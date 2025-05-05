@@ -18,6 +18,7 @@
 ## Descrição
 **Explorando a RMC: Um guia completo da Região Metropolitana de Campinas.**
 
+<<<<<<< HEAD
 Este projeto tem como objetivo a criação de um guia interativo e informativo sobre a Região Metropolitana de Campinas (RMC). Utilizando tecnologias como HTML5, CSS3, JavaScript, Python com Flask e MySQL, a plataforma oferece informações centralizadas sobre as cidades da região, facilitando o acesso a dados como população, área, PIB, IDH, entre outros. A solução conta com um design moderno e funcional, permitindo aos usuários explorar as informações de maneira clara e dinâmica.
 
 ## Funcionalidades:
@@ -26,3 +27,9 @@ Este projeto tem como objetivo a criação de um guia interativo e informativo s
 - **Responsividade**: Interface adaptável para dispositivos móveis e desktops.
 
 
+=======
+Este projeto tem como objetivo a criação de um guia interativo e informativo sobre a Região Metropolitana de Campinas (RMC).
+A plataforma oferece informações centralizadas sobre as cidades da região, facilitando o acesso a dados como população, área, PIB, IDH, entre outros.
+A solução conta com um design moderno e funcional, permitindo aos usuários explorar as informações de maneira clara e dinâmica.
+
+>>>>>>> 79cc07dbdcb02c7d7d40a3abaddc3727c876e0ee
