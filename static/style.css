@@ -337,11 +337,20 @@ a:hover {
 
 /* Para o carrossel ocupar a altura da tela */
 .carousel-item img {
-    aspect-ratio: 20 / 9;
-    width: 100%;
     object-fit: cover;
-  }
-  
+    height: 90vh;
+}
+
+@media (max-width: 768px) {
+    .carousel-item img {
+        object-fit: cover;
+        height: 40vh;
+    }
+
+    .carousel-caption {
+        font-size: 0.9rem;
+    }
+}
 
 
 /* Rolagem suave ao clicar nos links âncora */
@@ -385,3 +394,40 @@ html {
 .municipio-card:hover {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
+
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #004085;
+  }
+  
+  .underline {
+    width: 60px;
+    height: 4px;
+    background-color: #0d6efd;
+    border: none;
+    border-radius: 2px;
+  }
+  
+  .lead {
+    font-size: 1.125rem;
+    color: #444;
+    margin-bottom: 1.5rem;
+  }
+
+  #sobre {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+  }
+
+  #sobre h2 {
+    font-size: 2.5rem;
+    color: #004085;
+  }
+
+  #sobre .lead {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+
