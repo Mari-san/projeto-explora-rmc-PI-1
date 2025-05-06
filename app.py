@@ -309,4 +309,4 @@ def excluir_sugestao(id):
 
 # Executar o aplicativo Flask
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
