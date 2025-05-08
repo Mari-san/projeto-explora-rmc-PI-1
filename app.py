@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, flash, session
+from flask import Flask, render_template, request, redirect, flash, session, url_for
 import pymysql
 
 app = Flask(__name__, template_folder=".")
@@ -225,44 +225,35 @@ def index():
     return render_template('index.html', cidades=cidades)
 
 # Rota de login
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['POST'])
 def login():
-    if request.method == 'POST':
-        username = request.form['admin']
-        password = request.form['1234']
-        
-        if username == USUARIO_ADMIN["username"] and password == USUARIO_ADMIN["password"]:
-            session['usuario'] = username
-            flash("Login realizado com sucesso!", "success")
-            return redirect('/sugestoes')
-        else:
-            flash("Usuário ou senha incorretos!", "danger")
-            return render_template('index.html', abrir_modal=True)
+    username = request.form['username']
+    password = request.form['password']
+    next_page = request.form.get('next')
 
-    return render_template('index.html')
+    if username == USUARIO_ADMIN["username"] and password == USUARIO_ADMIN["password"]:
+        session['usuario'] = username
+        flash("Login realizado com sucesso!", "success")
+        return redirect(next_page or url_for('listar_sugestoes'))
+    else:
+        flash("Usuário ou senha incorretos!", "danger")
+        return render_template('index.html', cidades=cidades, abrir_modal=True)
 
 
-
-# Rota de logout
-@app.route('/logout')
-def logout():
-    session.pop('usuario', None)
-    flash("Logout realizado!", "info")
-    return redirect('/login')
 
 # Página protegida de sugestões
 @app.route('/sugestoes')
 def listar_sugestoes():
     if 'usuario' not in session:
         flash("Você precisa fazer login para acessar esta página.", "warning")
-        return redirect('/login')
+        return redirect(url_for('index', next='/sugestoes'))
 
     termo = request.args.get('termo', '')
     conn = get_connection()
     cursor = conn.cursor()
 
     if termo:
-        cursor.execute("SELECT * FROM sugestoes WHERE mensagem LIKE %s", ('%' + termo + '%',))
+        cursor.execute("SELECT * FROM sugestoes WHERE mensagem LIKE %s ORDER BY data_envio DESC", ('%' + termo + '%',))
     else:
         cursor.execute("SELECT * FROM sugestoes ORDER BY data_envio DESC")
 

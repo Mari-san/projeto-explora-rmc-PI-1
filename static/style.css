@@ -437,3 +437,55 @@ html {
 }
 
 
+/* Modal de Login */
+.modal-content {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+.modal-header {
+    border-bottom: none;
+    justify-content: center;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight:500;
+    color: #000000;
+}
+
+.modal-body {
+    padding-top: 0;
+}
+
+.modal-body .form-control {
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+}
+
+.modal-footer {
+    border-top: none;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.btn-login {
+    width: 100%;
+    background-color: #0a1d3a;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 0;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #06244e;
+}

@@ -41,11 +41,11 @@
                 </li>
             </ul>
 
-            <!-- Botão que abre o modal -->
-            <button type="button" class="btn btn-outline-light acesso-privado-btn" data-bs-toggle="modal" data-bs-target="#loginModal">
-                Login
-            </button>
+                        <!-- Botão para abrir o modal -->
+            <a href="#" class="btn btn-outline-light ms-auto" data-bs-toggle="modal" data-bs-target="#loginModal">
+                <i class="bi bi-lock-fill"></i></a>
 
+           
 
 
         </div>
@@ -134,34 +134,57 @@
         </div>
       </section>
 
-      <!-- Modal de Login -->
+    
+
+<!-- Modal de Login -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        
-        <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">Acesso Restrito</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-        </div>
-  
-        <div class="modal-body">
-          <form action="/login" method="POST">
-            <div class="mb-3">
-              <label for="usuario" class="form-label">Usuário</label>
-              <input type="" class="form-control" id="usuario" name="usuario" placeholder="" required>
-            </div>
-            <div class="mb-3">
-              <label for="senha" class="form-label">Senha</label>
-              <input type="password" class="form-control" id="senha" name="senha" placeholder="" required>
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Entrar</button>
-          </form>
-        </div>
-  
+  <div class="modal-dialog">
+    <form method="POST" action="{{ url_for('login') }}" class="modal-content">
+      <div class="modal-header text-white">
+        <h5 class="modal-title">Login</h5>
+        <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="modal" aria-label="Fechar"></button>
       </div>
-    </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="username" class="form-label">Usuário</label>
+          <input type="text" class="form-control" name="username" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Senha</label>
+          <input type="password" class="form-control" name="password" required>
+        </div>
+        <input type="hidden" name="next" value="{{ request.args.get('next') or url_for('listar_sugestoes') }}">
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Entrar</button>
+      </div>
+    </form>
   </div>
+</div>
+
+    <!-- Mensagens flash (fora do modal) -->
+    <div class="container mt-3">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </div>
   
+
+<!-- Script para abrir modal automaticamente se necessário -->
+{% if abrir_modal %}
+<script>
+  const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+  loginModal.show();
+</script>
+{% endif %}
+
       
     
   
