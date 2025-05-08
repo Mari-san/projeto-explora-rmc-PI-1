@@ -232,13 +232,16 @@ def login():
         password = request.form['password']
         
         if username == USUARIO_ADMIN["username"] and password == USUARIO_ADMIN["password"]:
-            session['usuario'] = username  # Salva na sessão
+            session['usuario'] = username
             flash("Login realizado com sucesso!", "success")
             return redirect('/sugestoes')
         else:
             flash("Usuário ou senha incorretos!", "danger")
+            return render_template('index.html', abrir_modal=True)
 
-    return render_template('login.html')
+    return render_template('index.html')
+
+
 
 # Rota de logout
 @app.route('/logout')
