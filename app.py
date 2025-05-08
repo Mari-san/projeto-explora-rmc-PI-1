@@ -228,8 +228,8 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+        username = request.form['admin']
+        password = request.form['1234']
         
         if username == USUARIO_ADMIN["username"] and password == USUARIO_ADMIN["password"]:
             session['usuario'] = username
