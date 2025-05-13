@@ -8,7 +8,7 @@ app.secret_key = "chave-secreta"  # Necessário para sessões
 def get_connection():
     return pymysql.connect(host='localhost', user='root', password='102030', database='rmc_db')
 
-# Lista fixa de cidades (substituindo o banco de dados para essa informação)
+# Lista fixa de cidades 
 cidades = [
     {
         'id': 'americana',
@@ -18,7 +18,7 @@ cidades = [
         'idh': '0,819',
         'pib': '11.456.789,00',
         'site': 'https://www.americana.sp.gov.br',
-        'descricao': 'Americana é conhecida por seu polo têxtil e localização estratégica no interior paulista.'
+        'descricao': 'Americana surgiu como um bairro de Santa Bárbara d’Oeste e cresceu com a chegada da ferrovia e dos imigrantes norte-americanos após a Guerra Civil dos EUA. Hoje, é uma cidade industrializada, com forte presença cultural e qualidade de vida.'
     },
     {
         'id': 'artur_nogueira',
@@ -28,7 +28,7 @@ cidades = [
         'idh': '0,748',
         'pib': '1.234.567,89',
         'site': 'https://www.arturnogueira.sp.gov.br',
-        'descricao': 'Artur Nogueira é um município com forte influência agrícola e eventos culturais regionais.'
+        'descricao': 'Artur Nogueira é conhecida como a "Cidade Simpatia", com clima de interior e forte espírito comunitário. Com tradição na agricultura e eventos religiosos, destaca-se também por abrigar o centro universitário Unasp, referência na região.'
     },
     {
         'id': 'campinas',
@@ -38,7 +38,7 @@ cidades = [
         'idh': '0,805',
         'pib': '61.789.654,32',
         'site': 'https://www.campinas.sp.gov.br',
-        'descricao': 'Campinas é o centro econômico e tecnológico da região, com destaque para universidades e empresas de inovação.'
+        'descricao': 'Campinas é o coração da RMC e surgiu no século XVIII como parada de bandeirantes. Cresceu com o café, industrializou-se e hoje é um dos maiores polos de tecnologia, ciência e educação do país, com vida urbana intensa e centros de inovação.'
     },
     {
         'id': 'cosmopolis',
@@ -48,7 +48,7 @@ cidades = [
         'idh': '0,755',
         'pib': '1.789.654,00',
         'site': 'https://www.cosmopolis.sp.gov.br',
-        'descricao': 'Cosmópolis se destaca pelo setor industrial e sua história ligada à imigração europeia.'
+        'descricao': 'Cosmópolis tem raízes no ciclo do café e ganhou forma com a chegada da ferrovia no século XIX. Hoje, preserva sua herança cultural, abriga indústrias e áreas rurais produtivas, sendo destaque no turismo rural e religioso.'
     },
     {
         'id': 'engenheiro_coelho',
@@ -58,7 +58,7 @@ cidades = [
         'idh': '0,755',
         'pib': '789.123,45',
         'site': 'https://www.engenheirocoelho.sp.gov.br',
-        'descricao': 'Município tranquilo com destaque para o setor educacional e atividades agrícolas.'
+        'descricao': 'Engenheiro Coelho é um recanto tranquilo do Circuito das Águas Paulista. Com raízes no cultivo de café e cana-de-açúcar, ganhou visibilidade por sediar o Unasp, e hoje atrai visitantes pelas áreas verdes e atmosfera acolhedora.'
     },
     {
         'id': 'holambra',
@@ -68,7 +68,7 @@ cidades = [
         'idh': '0,783',
         'pib': '456.789,12',
         'site': 'https://www.holambra.sp.gov.br',
-        'descricao': 'Conhecida como a cidade das flores, Holambra tem forte influência da cultura holandesa.'
+        'descricao': 'Holambra, a 134 km de São Paulo, é conhecida como a “Cidade das Flores” e maior produtora de flores da América Latina. Fundada por imigrantes holandeses, preserva suas raízes através da arquitetura, gastronomia e festas típicas. O destaque é a Expoflora, maior evento do setor no continente. A cidade também abriga o maior moinho da América Latina e atrações culturais ligadas à imigração.'
     },
     {
         'id': 'hortolandia',
@@ -78,7 +78,7 @@ cidades = [
         'idh': '0,756',
         'pib': '13.116.393,02',
         'site': 'https://www.hortolandia.sp.gov.br/',
-        'descricao': 'Hortolândia é um importante polo tecnológico e industrial da região de Campinas.'
+        'descricao': 'Hortolândia tem pouco mais de três décadas como cidade e já se destaca por sua vocação tecnológica e ambiental. Com parques urbanos, empresas de ponta e localização estratégica, é símbolo de crescimento acelerado e sustentável na região.'
     },
     {
         'id': 'indaiatuba',
@@ -88,7 +88,7 @@ cidades = [
         'idh': '0,788',
         'pib': '14.567.890,00',
         'site': 'https://www.indaiatuba.sp.gov.br',
-        'descricao': 'Indaiatuba é conhecida pela qualidade de vida, infraestrutura e indústrias de ponta.'
+        'descricao': 'Indaiatuba mescla tradição e modernidade, com raízes rurais e forte influência italiana. É hoje uma das cidades mais bem avaliadas em qualidade de vida no Brasil, com áreas verdes, polo industrial e infraestrutura urbana planejada.'
     },
     {
         'id': 'itatiba',
@@ -98,7 +98,7 @@ cidades = [
         'idh': '0,787',
         'pib': '6.123.456,78',
         'site': 'https://www.itatiba.sp.gov.br',
-        'descricao': 'Itatiba é uma cidade com forte presença industrial e áreas verdes preservadas.'
+        'descricao': 'Itatiba, a "Princesa da Colina", está localizada a 84 km da capital e integra o Circuito das Frutas, com destaque para a tradicional Festa do Caqui. A cidade oferece turismo rural, histórico-cultural e de negócios, além de atrações como o Zooparque, planetário e belos casarões do século XIX. É também reconhecida como a Capital Brasileira do Móvel Colonial.'
     },
     {
         'id': 'jaguariuna',
@@ -108,7 +108,7 @@ cidades = [
         'idh': '0,803',
         'pib': '4.567.890,12',
         'site': 'https://www.jaguariuna.sp.gov.br',
-        'descricao': 'Jaguariúna destaca-se pela área de tecnologia, turismo rural e eventos musicais.'
+        'descricao': 'Jaguariúna cresceu ao redor da ferrovia e preserva esse passado com o charmoso trem turístico. Com vocação tecnológica e eventos culturais como o rodeio e o festival de jazz, é um destino vibrante e multifacetado da RMC.'
     },
     {
         'id': 'monte_mor',
@@ -118,7 +118,7 @@ cidades = [
         'idh': '0,739',
         'pib': '2.345.678,90',
         'site': 'https://www.montemor.sp.gov.br',
-        'descricao': 'Monte Mor é um município com crescente expansão urbana e localização estratégica.'
+        'descricao': 'Monte Mor combina história, desde sua emancipação no século XIX, com dinamismo industrial e agrícola. A cidade tem localização estratégica, áreas verdes e vem crescendo com equilíbrio entre o urbano e o rural.'
     },
     {
         'id': 'morungaba',
@@ -128,7 +128,7 @@ cidades = [
         'idh': '0,773',
         'pib': '678.901,23',
         'site': 'https://www.morungaba.sp.gov.br',
-        'descricao': 'Morungaba é uma estância climática cercada de natureza, ideal para turismo ecológico.'
+        'descricao': 'Morungaba, a 103 km de São Paulo, é uma estância turística com clima agradável, belas paisagens e tradição em doces artesanais sem conservantes. Localizada no Circuito das Frutas, oferece também trilhas, parques ecológicos e culinária com especiarias e licores. Seu ambiente acolhedor e tranquilo atrai turistas em busca de natureza e sabores caseiros.'
     },
     {
         'id': 'nova_odessa',
@@ -138,7 +138,7 @@ cidades = [
         'idh': '0,789',
         'pib': '2.123.456,78',
         'site': 'https://www.novaodessa.sp.gov.br',
-        'descricao': 'Nova Odessa possui forte setor de serviços e boa qualidade de vida.'
+        'descricao': 'Nova Odessa nasceu como colônia para imigrantes europeus e hoje é modelo de urbanismo e sustentabilidade. Com o Jardim Botânico e projetos ecológicos, é referência em preservação ambiental e qualidade de vida.'
     },
     {
         'id': 'paulinia',
@@ -148,7 +148,7 @@ cidades = [
         'idh': '0,801',
         'pib': '25.678.912,34',
         'site': 'https://www.paulinia.sp.gov.br',
-        'descricao': 'Paulínia abriga o maior polo petroquímico da América Latina e possui economia robusta.'
+        'descricao': 'Paulínia ganhou projeção nacional com a instalação da refinaria da Petrobras e tornou-se um dos maiores polos petroquímicos do país. Com teatro moderno e infraestrutura urbana, mistura indústria, cultura e inovação.'
     },
     {
         'id': 'pedreira',
@@ -158,7 +158,7 @@ cidades = [
         'idh': '0,774',
         'pib': '1.234.567,89',
         'site': 'https://www.pedreira.sp.gov.br',
-        'descricao': 'Pedreira é famosa por suas lojas de porcelana e artesanato, sendo um atrativo turístico.'
+        'descricao': 'Pedreira, localizada a 133 km de São Paulo, é conhecida como a "Capital da Porcelana" devido às suas mais de 500 lojas que vendem louças e artesanatos direto da fábrica. Com belas paisagens e cortada pelo Rio Jaguari, é integrante do Circuito das Águas Paulista e tornou-se Município de Interesse Turístico em 2017. A cidade também se destaca pelo turismo cultural e religioso, como o Complexo Turístico do Morro do Cristo. Seu nome vem dos muitos “Pedros” da família fundadora Godoy Moreira.'
     },
     {
         'id': 'santa_barbara_d_oeste',
@@ -168,7 +168,7 @@ cidades = [
         'idh': '0,774',
         'pib': '8.765.432,10',
         'site': 'https://www.santabarbara.sp.gov.br',
-        'descricao': 'Cidade com rica história industrial e tradicional Festa Confederada.'
+        'descricao': 'Santa Bárbara d’Oeste preserva a memória dos imigrantes norte-americanos que chegaram após a Guerra Civil dos EUA. Rica em história, é também um importante polo industrial, com tradição cultural e eventos como o Santa Bárbara Rock Fest.'
     },
     {
         'id': 'santo_antonio_de_posse',
@@ -178,7 +178,7 @@ cidades = [
         'idh': '0,747',
         'pib': '567.890,12',
         'site': 'https://www.pmdposse.sp.gov.br',
-        'descricao': 'Cidade de pequeno porte com economia baseada na agropecuária e pequenas indústrias.'
+        'descricao': 'Santo Antônio de Posse é um refúgio rural com forte vocação agrícola, especialmente na produção de frutas. Com paisagens tranquilas, festas tradicionais e hospitalidade típica do interior paulista, atrai quem busca contato com a natureza.'
     },
     {
         'id': 'sumare',
@@ -188,7 +188,7 @@ cidades = [
         'idh': '0,764',
         'pib': '12.345.678,90',
         'site': 'https://www.sumare.sp.gov.br',
-        'descricao': 'Sumaré é um importante polo industrial e residencial na RMC.'
+        'descricao': 'Sumaré cresceu com a chegada da ferrovia e a força da industrialização. Hoje é uma cidade populosa com economia diversificada, importante parque fabril e localização privilegiada no eixo entre Campinas e Americana.'
     },
     {
         'id': 'valinhos',
@@ -198,7 +198,7 @@ cidades = [
         'idh': '0,819',
         'pib': '7.890.123,45',
         'site': 'https://www.valinhos.sp.gov.br',
-        'descricao': 'Conhecida pela Festa do Figo, Valinhos combina agricultura com setor imobiliário forte.'
+        'descricao': 'Valinhos é cercada por plantações de figo e goiaba, frutas que marcam sua identidade agrícola. Com boa infraestrutura urbana, festas tradicionais e clima acolhedor, é um dos destinos mais tranquilos e valorizados da RMC.'
     },
     {
         'id': 'vinhedo',
@@ -208,7 +208,7 @@ cidades = [
         'idh': '0,817',
         'pib': '6.789.012,34',
         'site': 'https://www.vinhedo.sp.gov.br',
-        'descricao': 'Vinhedo oferece excelente qualidade de vida, com infraestrutura moderna e natureza.'
+        'descricao': 'Vinhedo nasceu entre vinhedos e colinas e mantém viva sua herança italiana. Famosa pela tradicional Festa da Uva, combina charme rural com crescimento urbano, sendo destino certo para quem busca lazer e boa gastronomia.'
     },
 ]
 
